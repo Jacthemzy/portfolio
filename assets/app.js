@@ -14,6 +14,9 @@ navLinks.forEach((link) => {
   });
 });
 
+
+
+
 // change the nav toggle icon
 function changeToggleIcon() {
   if (navMenu.classList.contains("nav__menu--open")) {
@@ -124,6 +127,23 @@ themeToggle.addEventListener("click", () => {
     disableDarkTheme();
   }
 });
+
+const aboutContent = document.querySelector('.about__content');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    root: null,
+    threshold: 0.3 // Adjust as needed
+});
+
+observer.observe(aboutContent);
+
 
 // ScrollReveal Animations
 

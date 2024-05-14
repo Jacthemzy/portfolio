@@ -88,10 +88,12 @@
     list-style: none;
   }
   
-  img {
-    max-width: 100%;
+   img {
+    max-width: 70%;
     display: block;
-  }
+  } 
+
+
   
   input,
   textarea,
@@ -206,12 +208,19 @@
     margin: 0.5rem 0 1.5rem;
   }
   
-  .section__subtitle {
+  /* .section__subtitle {
     font-weight: var(--fw-bold);
     font-size: var(--fs-md);
     color: var(--color-primary);
   }
-  
+   */
+
+   .section__subtitle {
+    font-weight: var(--fw-bold);
+    font-size: 1.5em; /* Increase font size */
+    color: var(--color-primary);
+}
+
   .d-grid {
     display: grid;
     gap: 3rem;
@@ -356,11 +365,33 @@
     text-align: center;
   }
   
-  .home__title {
+  /* .home__title {
     font-size: var(--fs-biggest);
     margin-bottom: 2rem;
-  }
-  
+  } */
+  .home__title {
+    font-size: 3em; /* Increase the size of the text */
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.home__title::after {
+    content: '|';
+    position: absolute;
+    right: 0;
+    animation: typing 10s steps(10, end) infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
   .home__description {
     margin-bottom: 3rem;
   }
@@ -409,7 +440,7 @@
   
   /* About
   --------------------------------------------------------------*/
-  .about__wrapper {
+  /* .about__wrapper {
     justify-items: center;
   }
   
@@ -423,7 +454,38 @@
   
   .about__img {
     border-radius: var(--b-radius);
-  }
+  } */
+
+  .about__wrapper {
+    justify-items: center;
+}
+
+.about__content {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Add transition for smoother animation */
+}
+
+.about__content.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about__description {
+    margin-bottom: 2rem;
+}
+
+.about__img {
+    border-radius: var(--b-radius);
+    max-width: 80%; /* Reduce the size of the image */
+    height: auto;
+}
+
+
+
+
+
 
   /* Skills
 --------------------------------------------------------------*/
@@ -613,7 +675,7 @@
     color: var(--color-white);
   }
   
-  .portfolio__link {
+  /* .portfolio__link {
     position: absolute;
     top: 2rem;
     right: -100%;
@@ -627,7 +689,26 @@
     align-items: center;
     font-size: 2.2rem;
     transition: var(--transition);
-  }
+  } */
+
+  .portfolio__link {
+    position: absolute;
+    top: 2rem;
+    right: 2rem; /* Adjust as needed */
+    z-index: 999; /* Ensure it's above other elements */
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--color-white);
+    color: var(--color-title);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    transition: var(--transition);
+    cursor: pointer; /* Ensure cursor changes on hover */
+}
+
   
   .portfolio__link:hover {
     background-color: var(--color-primary);
