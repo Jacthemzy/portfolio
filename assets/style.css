@@ -217,9 +217,14 @@
 
    .section__subtitle {
     font-weight: var(--fw-bold);
-    font-size: 1.5em; /* Increase font size */
+    font-size: 3.5em; /* Increase font size */
     color: var(--color-primary);
 }
+
+
+
+
+
 
   .d-grid {
     display: grid;
@@ -476,11 +481,20 @@
     margin-bottom: 2rem;
 }
 
-.about__img {
+/* .about__img {
     border-radius: var(--b-radius);
     max-width: 80%; /* Reduce the size of the image */
-    height: auto;
+    /* height: auto; */
+/* } */ */
+
+.about__img {
+  border-radius: var(--b-radius);
+  max-width: 60%; /* Reduce the size of the image */
+  height: auto;
+  float: left; /* Place the image on the left side */
+  margin-right: 20px; /* Add space between the image and the text */
 }
+
 
 
 
